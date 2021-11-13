@@ -26,11 +26,9 @@ if __name__ == "__main__":
                     else:
                         continue
                 os.makedirs(target_path)
-                result = subprocess.run(["pip-download", "-py", target_py, "-p", target_os, package], cwd=target_path,
-                                        capture_output=True)
+                result = subprocess.run(["pip-download", "-py", target_py, "-p", target_os, package], cwd=target_path)
                 if result.returncode < 0:
                     continue
-                # lines = result.stdout.decode().split("\n")
                 with open(f"{target_path}/install.bat", "w") as f:
                     f.write(f"python -m pip install {package} --no-index --find-link .")
         break
