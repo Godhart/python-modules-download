@@ -5,7 +5,6 @@ import sys
 
 if __name__ == "__main__":
     force = "--force" in sys.argv
-    force = True
 
     with open("requirements.txt", "r") as f:
         packages = f.readlines()
